@@ -1,0 +1,2 @@
+-- BlogUser
+--INSERT INTO Book (id,username,createdate,lastUpdate) VALUES (1, 'toto', sysdate, sysdate);

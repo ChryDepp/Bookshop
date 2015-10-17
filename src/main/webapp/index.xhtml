@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+	<h:outputLabel>Welcome to the book shop !</h:outputLabel>
+
+	<h:form>
+		<h:panelGrid columns="4" cellpadding="5">
+			<h:outputLabel for="name" value="Name:" style="font-weight:bold" />
+			<p:inputText id="name" value="#{bookController.bookNumber}" />
+			<p:commandButton value="Submit" update="display" icon="ui-icon-check" />
+			<h:outputText id="display" value="#{bookController.bookNumber}" />
+		</h:panelGrid>
+	</h:form>
+
+	<p:dataTable var="book" value="#{bookController.books}">
+		<p:column headerText="ISBN">
+			<h:outputText value="#{book.isbn}" />
+		</p:column>
+
+		<p:column headerText="Summay">
+			<h:outputText value="#{book.summary}" />
+		</p:column>
+
+		<p:column headerText="Title">
+			<h:outputText value="#{book.title}" />
+		</p:column>
+
+		<p:column headerText="Authors">
+			<p:dataList value="#{book.authors}" var="author" type="ordered">
+        #{author.firstname} #{author.lastname}
+    </p:dataList>
+		</p:column>
+	</p:dataTable>
+
+</h:body>
+</html>
