@@ -16,14 +16,17 @@
 
 	<h:form>
 		<h:panelGrid columns="4" cellpadding="5">
-			<h:outputLabel for="name" value="Name:" style="font-weight:bold" />
-			<p:inputText id="name" value="#{bookController.bookNumber}" />
-			<p:commandButton value="Submit" update="display" icon="ui-icon-check" />
-			<h:outputText id="display" value="#{bookController.bookNumber}" />
+			<h:outputLabel for="isbn" value="ISBN: " style="font-weight:bold" />
+			<p:inputText id="isbn" value="#{bookController.book.isbn}" />
+			<h:outputLabel for="title" value="Title:" style="font-weight:bold" />
+			<p:inputText id="title" value="#{bookController.book.title}" />
+			<h:outputLabel for="summary" value="Summary:" style="font-weight:bold" />
+			<p:inputTextarea id="summary" value="#{bookController.book.summary}" />
+			<p:commandButton value="Add book" action="#{bookController.saveBook}" update="books" icon="ui-icon-check" />
 		</h:panelGrid>
 	</h:form>
 
-	<p:dataTable var="book" value="#{bookController.books}">
+	<p:dataTable id="books" var="book" value="#{bookController.books}">
 		<p:column headerText="ISBN">
 			<h:outputText value="#{book.isbn}" />
 		</p:column>
@@ -42,6 +45,8 @@
     </p:dataList>
 		</p:column>
 	</p:dataTable>
+	
+	
 
 </h:body>
 </html>

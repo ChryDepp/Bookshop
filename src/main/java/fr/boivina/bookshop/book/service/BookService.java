@@ -31,7 +31,9 @@ public class BookService {
 	}
 	
 	public void save(Book book) {
-		book.getAuthors().stream().forEach(author -> entityManager.persist(author));
+		if(book.getAuthors() != null) {
+			book.getAuthors().stream().forEach(author -> entityManager.persist(author));
+		}
 		entityManager.persist(book);
 	}
 }

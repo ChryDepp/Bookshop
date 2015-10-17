@@ -19,7 +19,7 @@ public class BookController {
 	@Inject
 	private BookService bookService;
 	
-	private String bookNumber = "10";
+	private Book book = new Book();
 	
 	private List<Book> books;
 
@@ -40,10 +40,20 @@ public class BookController {
 		
 		authors.forEach(auth -> author.getBooks().add(book));
 		
-		
 		bookService.save(book);
 		
+		refreshBooks();
+	}
+
+	private void refreshBooks() {
 		books = bookService.findAll();
+	}
+	
+	public void saveBook(){
+		bookService.save(book);
+		refreshBooks();
+		
+		
 	}
 
 	public List<Book> getBooks() {
@@ -54,11 +64,11 @@ public class BookController {
 		this.books = books;
 	}
 
-	public String getBookNumber() {
-		return bookNumber;
+	public Book getBook() {
+		return book;
 	}
 
-	public void setBookNumber(String bookNumber) {
-		this.bookNumber = bookNumber;
+	public void setBook(Book book) {
+		this.book = book;
 	}
 }
