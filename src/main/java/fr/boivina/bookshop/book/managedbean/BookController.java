@@ -29,6 +29,7 @@ public class BookController {
 		Author author = new Author();
 		author.setFirstName("Arnaud");
 		author.setLastName("Boivin");
+		author.setBooks(new ArrayList<>());
 		List<Author> authors = new ArrayList<>();
 		authors.add(author);
 		
@@ -36,13 +37,13 @@ public class BookController {
 		book.setAuthors(authors);
 		book.setIsbn("1-161-1-111");
 		book.setSummary("Summary of the book");
+		
+		authors.forEach(auth -> author.getBooks().add(book));
+		
+		
 		bookService.save(book);
 		
-		book.
-		
-		
 		books = bookService.findAll();
-		books.stream().forEach(bo -> bo.getAuthors().forEach(auth -> auth.getFirstName()));
 	}
 
 	public List<Book> getBooks() {
