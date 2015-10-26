@@ -11,7 +11,6 @@ import javax.persistence.Table;
 
 /**
  * Information related to book.
- * @author boivina
  *
  */
 @Entity
