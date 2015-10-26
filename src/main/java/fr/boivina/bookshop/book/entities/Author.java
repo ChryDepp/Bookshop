@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 /**
- * Person infoirmation business object.
+ * Person information business object.
  * @author boivina
  *
  */
